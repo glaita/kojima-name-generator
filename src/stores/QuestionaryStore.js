@@ -1,7 +1,61 @@
 import { observable, action } from 'mobx'
 
 class QuestionaryStore {
-  @observable sectionOne = null
+  @observable selections = new Map()
+
+  constructor() {
+    this.buildSelections()
+  }
+
+  @action
+  buildSelections() {
+    this.addSelection('1_1')
+    this.addSelection('2_1')
+    this.addSelection('2_2')
+    this.addSelection('2_2a')
+    this.addSelection('2_3')
+    this.addSelection('2_4')
+    this.addSelection('2_4a')
+    this.addSelection('2_5')
+    this.addSelection('2_6')
+    this.addSelection('2_7')
+    this.addSelection('2_8')
+    this.addSelection('2_9')
+    this.addSelection('2_10')
+    this.addSelection('2_11')
+    this.addSelection('2_12')
+    this.addSelection('2_13')
+    this.addSelection('2_14')
+    this.addSelection('2_15')
+    this.addSelection('3_16')
+    this.addSelection('3_17')
+    this.addSelection('3_18')
+    this.addSelection('3_19')
+    this.addSelection('3_20')
+    this.addSelection('3_21')
+    this.addSelection('3_21a')
+    this.addSelection('4_1')
+    this.addSelection('4_2')
+    this.addSelection('4_3')
+    this.addSelection('4_4')
+    this.addSelection('5_5')
+  }
+
+  @action
+  addSelection(name) {
+    this.selections.set(name, '')
+  }
+
+  @action
+  setSelectionValue(key, value) {
+    this.selections.set(key, value)
+  }
+
+  getSelection(key) {
+    return this.selections.get(key)
+  }
+
+  /* @observable sectionOne = null
   @observable sectionTwo1 = null
   @observable sectionTwo2 = null
   @observable sectionTwo2a = null
@@ -180,7 +234,7 @@ class QuestionaryStore {
   @action
   setSectionFive5(value) {
     this.sectionFive5 = value
-  }
+  } */
 }
 
 export default QuestionaryStore

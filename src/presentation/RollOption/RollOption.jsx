@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 const RollOption = ({ values, description, selected }) => {
   return (
-    <tr>
-      <td>{values}</td>
-      <td>{description}</td>
-    </tr>
+    <div>
+      <div>{values}</div>
+      <div>{description}</div>
+    </div>
   )
 }
 
