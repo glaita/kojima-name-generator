@@ -1,3 +1,25 @@
+.tableItem {
+  border-bottom: 1px solid #000000;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  transition: background 200ms ease, color 200ms ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.values {
+  border-right: 1px solid #000000;
+  padding: 5px;
+}
+
+.description {
+  padding: 5px;
+}
+
 .selected {
-  background: red;
+  background: grey;
+  color: #ffffff;
+  transition: background 200ms ease, color 200ms ease;
 }

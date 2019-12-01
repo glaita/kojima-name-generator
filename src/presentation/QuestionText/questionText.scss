@@ -1,0 +1,21 @@
+.inputContainer {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #000000;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+
+  &:disabled {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}

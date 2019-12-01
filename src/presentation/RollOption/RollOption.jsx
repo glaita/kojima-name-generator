@@ -5,9 +5,9 @@ import styles from './rollOption.scss'
 
 const RollOption = ({ values, description, selected }) => {
   return (
-    <div className={c(selected && styles.selected)}>
-      <div>{values}</div>
-      <div>{description}</div>
+    <div className={c(styles.tableItem, selected && styles.selected)}>
+      <div className={styles.values}>{values}</div>
+      <div className={styles.description}>{description}</div>
     </div>
   )
 }

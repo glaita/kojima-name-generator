@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './dice.scss'
 
 const getRandomInt = (min, max) => {
   const normMin = Math.ceil(min)
@@ -14,6 +15,7 @@ const Dice = ({ handleChange, maxRoll }) => {
       onClick={() => {
         handleChange(getRandomInt(1, maxRoll))
       }}
+      className={styles.dice}
     >
       Roll Dice (1-{maxRoll})
     </button>
