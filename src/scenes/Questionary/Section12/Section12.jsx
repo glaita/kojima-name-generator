@@ -16,7 +16,7 @@ const Section12 = observer(({ questionaryStore }) => (
       question={
         'Your Full Name is what you wrote on Section 2, Number 10 with any conditions added on Section 4:'
       }
-      value={questionaryStore.getName}
+      value={questionaryStore.hasLackingSubtextName ? questionaryStore.getName : ''}
       disabled
     />
   </Section>

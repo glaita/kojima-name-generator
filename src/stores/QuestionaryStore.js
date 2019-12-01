@@ -73,8 +73,13 @@ class QuestionaryStore {
   buildOccupationalName() {
     let firstName = ''
     const lastName = this.getSelection('2_2a')
+    const roll = this.getSelection('7_1')
 
-    switch (this.getSelection('7_1')) {
+    if (roll === '') {
+      return null
+    }
+
+    switch (roll) {
       case 2:
         firstName = this.getSelection('2_6')
         break
@@ -96,8 +101,13 @@ class QuestionaryStore {
   buildHornyName() {
     let firstName = ''
     const lastName = this.getSelection('2_3')
+    const roll = this.getSelection('8_1')
 
-    switch (this.getSelection('8_1')) {
+    if (roll === '') {
+      return null
+    }
+
+    switch (roll) {
       case 2:
         firstName = 'Naked'
         break
@@ -119,8 +129,13 @@ class QuestionaryStore {
   buildTheName() {
     const firstName = 'The'
     let lastName = ''
+    const roll = this.getSelection('9_1')
 
-    switch (this.getSelection('9_1')) {
+    if (roll === '') {
+      return null
+    }
+
+    switch (roll) {
       case 2:
         lastName = this.getSelection('2_9')
         break
@@ -142,8 +157,13 @@ class QuestionaryStore {
   buildCoolName() {
     const firstName = this.getSelection('3_21a')
     let lastName = ''
+    const roll = this.getSelection('10_1')
 
-    switch (this.getSelection('10_1')) {
+    if (roll === '') {
+      return null
+    }
+
+    switch (roll) {
       case 2:
         lastName = this.getSelection('3_18')
         break
@@ -171,8 +191,13 @@ class QuestionaryStore {
   buildViolentName() {
     let firstName = ''
     const lastName = this.getSelection('2_5')
+    const roll = this.getSelection('11_1')
 
-    switch (this.getSelection('11_1')) {
+    if (roll === '') {
+      return null
+    }
+
+    switch (roll) {
       case 2:
         firstName = this.getSelection('2_12')
         break
@@ -196,43 +221,92 @@ class QuestionaryStore {
   }
 
   @computed
-  get getName() {
+  get hasNormalName() {
     const category = this.getSelection('5_1')
 
-    if (category === 1) {
+    return category === 1
+  }
+
+  @computed
+  get hasOccupationalName() {
+    const category = this.getSelection('5_1')
+
+    return category >= 2 && category <= 6
+  }
+
+  @computed
+  get hasHornyName() {
+    const category = this.getSelection('5_1')
+
+    return category >= 7 && category <= 10
+  }
+
+  @computed
+  get hasTheName() {
+    const category = this.getSelection('5_1')
+
+    return category >= 11 && category <= 13
+  }
+
+  @computed
+  get hasCoolName() {
+    const category = this.getSelection('5_1')
+
+    return category >= 14 && category <= 17
+  }
+
+  @computed
+  get hasViolentName() {
+    const category = this.getSelection('5_1')
+
+    return category >= 18 && category <= 19
+  }
+
+  @computed
+  get hasLackingSubtextName() {
+    const category = this.getSelection('5_1')
+
+    return category === 20
+  }
+
+  @computed
+  get getName() {
+    if (this.hasNormalName) {
       // normal name
       return this.buildNormalName()
     }
 
-    if (category >= 2 && category <= 6) {
+    if (this.hasOccupationalName) {
       // occupational name
       return this.buildOccupationalName()
     }
 
-    if (category >= 7 && category <= 10) {
+    if (this.hasHornyName) {
       // horny name
       return this.buildHornyName()
     }
 
-    if (category >= 11 && category <= 13) {
+    if (this.hasTheName) {
       // THE name
       return this.buildTheName()
     }
 
-    if (category >= 14 && category <= 17) {
+    if (this.hasCoolName) {
       // cool name
       return this.buildCoolName()
     }
 
-    if (category >= 18 && category <= 19) {
+    if (this.hasViolentName) {
       // violent name
       return this.buildViolentName()
     }
 
-    if (category === 20) {
+    if (this.hasLackingSubtextName) {
       // name that lacks subtext
       return this.buildSubtextLackName()
     }
+
+    return null
   }
 
   addNameCondition(originalName) {

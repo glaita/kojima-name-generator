@@ -30,7 +30,7 @@ const Section11 = observer(({ questionaryStore }) => (
       question={
         'Your Last Name is what you wrote on Section 3, Number 5, your First Name is defined by your last roll:'
       }
-      value={questionaryStore.getName}
+      value={questionaryStore.hasViolentName ? questionaryStore.getName : ''}
       disabled
     />
   </Section>

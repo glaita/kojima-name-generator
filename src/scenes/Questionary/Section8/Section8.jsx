@@ -30,7 +30,7 @@ const Section8 = observer(({ questionaryStore }) => (
       question={
         'Your First Name is define by your last roll, your Last Name is what you wrote on Section 2 Number 3 with any conditions added on Section 4: (you can add "Lickable" as a Middle Name, i won\'t stop you)'
       }
-      value={questionaryStore.getName}
+      value={questionaryStore.hasHornyName ? questionaryStore.getName : ''}
       disabled
     />
   </Section>

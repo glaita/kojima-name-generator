@@ -16,7 +16,7 @@ const Section6 = observer(({ questionaryStore }) => (
       question={
         'Your name is what you wrote on Section 2 Number 1 with any conditions added on Section 4:'
       }
-      value={questionaryStore.getName}
+      value={questionaryStore.hasNormalName ? questionaryStore.getName : ''}
       disabled
     />
   </Section>
