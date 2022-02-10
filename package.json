@@ -34,7 +34,7 @@
     "mobx": "^5.10.1",
     "mobx-react": "^6.1.1",
     "mobx-react-devtools": "^6.1.1",
-    "node-sass": "4.11.0",
+    "node-sass": "7.0.0",
     "path-to-regexp": "^2.1.0",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.0",
